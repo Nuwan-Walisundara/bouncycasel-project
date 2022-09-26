@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.security.KeyStore;
 import java.security.PrivateKey;
 import java.security.Provider;
+import java.security.Security;
 import java.security.cert.CertStore;
 import java.security.cert.CollectionCertStoreParameters;
 import java.security.cert.X509Certificate;
@@ -54,6 +55,7 @@ public class App {
 			CMSSignedDataGenerator generator = new CMSSignedDataGenerator();
 			X509Certificate cert = null;
 			PrivateKey key = null;
+	        Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
 			List<X509Certificate> certList = new ArrayList<X509Certificate>();
 			cert = (X509Certificate) keystore.getCertificate(keyAlias);
 			key = (PrivateKey) keystore.getKey(keyAlias, password.toCharArray());

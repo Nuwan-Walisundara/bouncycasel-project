@@ -38,6 +38,8 @@ public class AppTest
     	try {
 		String s= 	new App().sign(sampleText.getBytes(),  "wso2carbon");
 		
+		
+		new Verify().getSignedData(s);
 		System.out.print(s);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
